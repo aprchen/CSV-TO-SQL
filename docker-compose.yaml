@@ -6,4 +6,4 @@ services:
         - ./:/var/www/html
     stdin_open: true
     tty: true
-    command: /bin/sh
+    command: /usr/bin/env php /var/www/html/bin/boot
