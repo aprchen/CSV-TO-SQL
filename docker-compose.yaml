@@ -1,0 +1,9 @@
+version: '2'
+services:
+  csv:
+    image: registry.cn-hangzhou.aliyuncs.com/sl/cli:v4
+    volumes:
+        - ./:/var/www/html
+    stdin_open: true
+    tty: true
+    command: /bin/sh
