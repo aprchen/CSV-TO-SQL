@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+use Aprchen\CsvHelper\Constants\FileExtension;
+use Aprchen\CsvHelper\Mapping\FileInterface;
+use Aprchen\CsvHelper\ScanDir;
+
+require __DIR__.'/../vendor/autoload.php';
+
+function scan(){
+    $path = INPUT;
+    $reader = new \App\BookCsvReader();
+    try {
+        $files = (new ScanDir())
+            ->setFileExtension(FileExtension::CSV)
+            ->setDir($path)
+            ->getFiles();
+        $key = 0;
+        if($files){
+            /** @var FileInterface $file */
+            foreach ($files as $file) {
+                $key ++;
+                $reader->setFile($file);
+                $reader->run();
+            }
+        }
+        echo "${key} done \n";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+
+}
+
+scan();

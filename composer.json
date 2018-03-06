@@ -1,0 +1,31 @@
+{
+    "name": "sl/csv-to-sql",
+    "type": "project",
+    "authors": [
+        {
+            "name": "ott321",
+            "email": "ott321@yeah.net"
+        }
+    ],
+    "require": {
+        "aprchen/csv-helper": "dev-master"
+    },
+    "require-dev": {
+        "eaglewu/swoole-ide-helper": "dev-master",
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "src/Helper/functions.php"
+        ]
+    },
+    "repositories": [
+        {
+            "type":"vcs",
+            "url":"https://github.com/aprchen/csvHelper"
+        }
+    ]
+}
